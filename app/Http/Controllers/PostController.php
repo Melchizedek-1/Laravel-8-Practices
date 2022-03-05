@@ -53,4 +53,13 @@ class PostController extends Controller
         ]);
         return back()->with('post_updated','Post has been Updated Succefully!');
     }
+
+    public function innerJoinClause ()
+    {
+        $request = DB::table('users')
+                ->join('posts','users.id','=','posts.user_id')
+                ->select('users.name','posts.title','posts.body')
+                ->get();
+        return $request;
+    }
 }
