@@ -5,6 +5,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\FluentController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UploadController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -64,3 +65,7 @@ Route::get('/edit-post/{id}',[PostController::class,'editPost'])->name('post.edi
 Route::post('/update-post',[PostController::class,'updatePost'])->name('post.update');
 
 Route::get('/inner-join',[PostController::class,'innerJoinClause'])->name('post.innerjoin');
+
+Route::get('/upload',[UploadController::class,'uploadForm']);
+
+Route::post('/upload',[UploadController::class,'uploadFile'])->name('upload.uploadfile');
